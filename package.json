@@ -1,0 +1,83 @@
+{
+  "name": "saint-carlo-sprite-viewer",
+  "displayName": "Saint Carlo Sprite Viewer",
+  "description": "Inspect sprite sheets - click tiles to see coordinates, toggle grid overlay, and more",
+  "version": "0.0.1",
+  "publisher": "csharp-forge",
+  "author": {
+    "name": "John VonDrashek"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JohnVonDrashek/saint-carlo-sprite-viewer"
+  },
+  "bugs": {
+    "url": "https://github.com/JohnVonDrashek/saint-carlo-sprite-viewer/issues"
+  },
+  "homepage": "https://github.com/JohnVonDrashek/saint-carlo-sprite-viewer#readme",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "keywords": [
+    "sprite",
+    "spritesheet",
+    "pixel art",
+    "game development",
+    "tilemap",
+    "tileset"
+  ],
+  "icon": "icon.png",
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "customEditors": [
+      {
+        "viewType": "spriteHelper.spriteSheetViewer",
+        "displayName": "Saint Carlo Sprite Viewer",
+        "selector": [
+          {
+            "filenamePattern": "*.png"
+          }
+        ],
+        "priority": "option"
+      }
+    ],
+    "commands": [
+      {
+        "command": "spriteHelper.openSpriteSheet",
+        "title": "Open with Saint Carlo Sprite Viewer"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "resourceExtname == .png",
+          "command": "spriteHelper.openSpriteSheet",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.0",
+    "@vscode/vsce": "^3.0.0",
+    "ovsx": "^0.9.0"
+  }
+}

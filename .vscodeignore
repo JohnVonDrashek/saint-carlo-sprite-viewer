@@ -1,0 +1,9 @@
+.vscode/**
+.github/**
+src/**
+.gitignore
+tsconfig.json
+**/*.ts
+**/*.map
+node_modules/**
+dungeon_tileset.png
